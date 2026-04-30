@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Jugable Mente</title>
+
+    <style>
+        :root {
+            --bg: #030303;
+            --neon: #00ffb3;
+            --neon-soft: rgba(0,255,179,0.25);
+            --text: #eafff8;
+            --card: rgba(0,255,179,0.05);
+            --border: rgba(0,255,179,0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background: black;
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 720px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .logo {
+            width: 180px;
+            max-width: 80%;
+            margin-bottom: 16px;
+            filter: none;
+        }
+
+        /* 📱 Responsive logo */
+        @media (min-width: 768px) {
+            .logo {
+                width: 240px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .logo {
+                width: 320px;
+            }
+        }
+
+        header p {
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+        }
+
+        a.card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+            padding: 18px;
+            text-decoration: none;
+            color: var(--text);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        a.card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--neon);
+            box-shadow: 0 0 12px var(--neon-soft);
+            background: rgba(0, 255, 179, 0.08);
+        }
+
+        .title {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 26px;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <img alt="Logo" class="logo" src="logo.png" />
+        <p>Podcast de Psicología y Videojuegos</p>
+    </header>
+
+    <div class="grid">
+        <a class="card" href="https://www.ivoox.com/podcast-jugable-mente_sq_f13160639_1.html" target="_blank">
+            <div class="title">Ivoox</div>
+        </a>
+        <a class="card" href="https://x.com/jugablemente" target="_blank">
+            <div class="title">Twitter</div>
+        </a>
+        <a class="card" href="https://t.me/+Xi0qWRDfaC82NWY0" target="_blank">
+            <div class="title">Telegram</div>
+        </a>
+    </div>
+
+    <footer>© InforPsico</footer>
+</div>
+</body>
+</html>
