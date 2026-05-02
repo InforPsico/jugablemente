@@ -31,6 +31,7 @@
             align-items: center;
             justify-content: center;
             padding: 24px;
+            font-size: clamp(14px, 1.2vw, 18px);
         }
 
         .container {
@@ -50,26 +51,13 @@
             filter: none;
         }
 
-        /* 📱 Responsive logo */
-        @media (min-width: 768px) {
-            .logo {
-                width: 240px;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .logo {
-                width: 320px;
-            }
-        }
-
         header p {
             opacity: 0.9;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 1fr;
             gap: 14px;
         }
 
@@ -101,6 +89,7 @@
             font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            font-size: clamp(0.9rem, 1vw, 1.2rem);
         }
 
         footer {
@@ -109,6 +98,68 @@
             font-size: 0.75rem;
             color: rgba(255,255,255,0.5);
         }
+
+        /* 📱 Responsive logo */
+        @media (min-width: 768px) {
+            .logo {
+                width: 260px;
+            }
+            .container {
+                max-width: 820px;
+            }
+
+            .grid {
+                gap: 16px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            a.card {
+                min-height: 90px;
+                padding: 20px;
+            }
+
+            .title {
+                font-size: 1.05rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .logo {
+                width: 360px;
+            }
+            .container {
+                max-width: 1000px;
+            }
+
+            .grid {
+                gap: 20px;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            a.card {
+                min-height: 110px;
+                padding: 24px;
+                border-radius: 16px;
+            }
+
+            .title {
+                font-size: 1.2rem;
+                letter-spacing: 0.8px;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            footer {
+                font-size: 1.05rem;
+            }
+        }
+
     </style>
 </head>
 
@@ -116,12 +167,19 @@
 <div class="container">
     <header>
         <img alt="Logo" class="logo" src="img/logo.png" />
-        <p>Podcast de Psicología y Videojuegos</p>
+        <p>Tu Podcast divulgativo sobre Videojuegos y Psicología en español</p>
+        <p>Con Itxel a los mandos e Inforpsico en el micro</p>
     </header>
 
     <div class="grid">
         <a class="card" href="https://www.ivoox.com/podcast-jugable-mente_sq_f13160639_1.html" target="_blank">
             <div class="title">Ivoox</div>
+        </a>
+        <a class="card" href="https://open.spotify.com/show/5iHQB3gf4hD3Q1gNKg9RU6" target="_blank">
+            <div class="title">Spotify</div>
+        </a>
+        <a class="card" href="https://www.youtube.com/@jugablemente" target="_blank">
+            <div class="title">Youtube</div>
         </a>
         <a class="card" href="https://x.com/jugablemente" target="_blank">
             <div class="title">Twitter</div>
@@ -129,9 +187,12 @@
         <a class="card" href="https://t.me/+Xi0qWRDfaC82NWY0" target="_blank">
             <div class="title">Telegram</div>
         </a>
+        <a class="card" href="https://www.instagram.com/jugablemente" target="_blank">
+            <div class="title">Instagram</div>
+        </a>
     </div>
 
-    <footer>© InforPsico</footer>
+    <footer>© Jugable Mente</footer>
 </div>
 </body>
 </html>
