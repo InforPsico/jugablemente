@@ -37,6 +37,7 @@
         .container {
             width: 100%;
             max-width: 720px;
+            margin: 0 auto;
         }
 
         header {
@@ -48,7 +49,6 @@
             width: 180px;
             max-width: 80%;
             margin-bottom: 16px;
-            filter: none;
         }
 
         header p {
@@ -61,18 +61,54 @@
             gap: 14px;
         }
 
+        .section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            margin-bottom: 26px;
+        }
+
+        .section-title {
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(234, 255, 248, 0.7);
+            margin: 18px 4px 10px;
+            border-left: 3px solid var(--neon);
+            padding-left: 10px;
+        }
+
+        .section-title {
+            grid-column: 1 / -1;
+        }
+
+        .card {
+            --platform: rgba(0,255,179,0.15);
+            --platform-border: rgba(0,255,179,0.4);
+        }
+
+        .ivoox { --platform: rgba(255, 102, 0, 0.15); --platform-border: rgba(255, 102, 0, 0.6); }
+        .youtube { --platform: rgba(255, 0, 0, 0.15); --platform-border: rgba(255, 0, 0, 0.6); }
+        .youtube .icon {background: white;padding: 4px;border-radius: 6px;}
+        .spotify { --platform: rgba(29, 185, 84, 0.15); --platform-border: rgba(29, 185, 84, 0.6); }
+        .apple { --platform: rgba(215, 0, 255, 0.15); --platform-border: rgba(215, 0, 255, 0.7); }
+        .amazon { --platform: rgba(0, 168, 225, 0.15); --platform-border: rgba(0, 168, 225, 0.6); }
+        .amazon .icon {border-radius: 6px;}
+        .telegram { --platform: rgba(0, 136, 204, 0.15); --platform-border: rgba(0, 136, 204, 0.6); }
+        .twitter { --platform: rgba(255, 255, 255, 0.12); --platform-border: rgba(255, 255, 255, 0.5); }
+
         a.card {
+            background: var(--card);
+            border: 1px solid var(--platform-border);
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            gap: 14px;
             min-height: 80px;
             padding: 18px;
             text-decoration: none;
             color: var(--text);
-            background: var(--card);
-            border: 1px solid var(--border);
             border-radius: 14px;
-            text-align: center;
             position: relative;
             overflow: hidden;
             transition: all 0.25s ease;
@@ -80,15 +116,28 @@
 
         a.card:hover {
             transform: translateY(-5px) scale(1.02);
-            border-color: var(--neon);
-            box-shadow: 0 0 12px var(--neon-soft);
-            background: rgba(0, 255, 179, 0.08);
+            box-shadow: 0 0 14px var(--platform-border);
+            background: var(--platform-border);
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 4px var(--neon-soft));
+        }
+
+        a.card:hover .icon {
+            transform: scale(1.1);
+            transition: 0.2s;
         }
 
         .title {
             font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            text-align: left;
             font-size: clamp(0.9rem, 1vw, 1.2rem);
         }
 
@@ -99,64 +148,65 @@
             color: rgba(255,255,255,0.5);
         }
 
-        /* 📱 Responsive logo */
+        /* TABLET */
         @media (min-width: 768px) {
+
+            .container {
+                max-width: 900px;
+            }
+
             .logo {
                 width: 260px;
             }
-            .container {
-                max-width: 820px;
+
+            .section {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .grid {
-                gap: 16px;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 18px;
             }
 
             a.card {
                 min-height: 90px;
-                padding: 20px;
-            }
-
-            .title {
-                font-size: 1.05rem;
-            }
-
-            header p {
-                font-size: 1rem;
             }
         }
 
+        /* DESKTOP */
         @media (min-width: 1200px) {
-            .logo {
-                width: 360px;
-            }
+
             .container {
-                max-width: 1000px;
+                max-width: 1200px;
+            }
+
+            header {
+                margin-bottom: 40px;
+            }
+
+            .logo {
+                width: 320px;
+            }
+
+            .section {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
             }
 
             .grid {
-                gap: 20px;
-                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
             }
 
             a.card {
-                min-height: 110px;
-                padding: 24px;
-                border-radius: 16px;
+                min-height: 120px;
+                padding: 26px;
             }
 
             .title {
-                font-size: 1.2rem;
-                letter-spacing: 0.8px;
-            }
-
-            header p {
-                font-size: 1.1rem;
+                font-size: 1.25rem;
             }
 
             footer {
-                font-size: 1.05rem;
+                font-size: 1rem;
             }
         }
 
@@ -168,28 +218,53 @@
     <header>
         <img alt="Logo" class="logo" src="img/logo.png" />
         <p>Tu Podcast divulgativo sobre Videojuegos y Psicología en español</p>
-        <p>Con Itxel a los mandos e Inforpsico en el micro</p>
     </header>
 
     <div class="grid">
-        <a class="card" href="https://www.ivoox.com/podcast-jugable-mente_sq_f13160639_1.html" target="_blank">
-            <div class="title">Ivoox</div>
-        </a>
-        <a class="card" href="https://open.spotify.com/show/5iHQB3gf4hD3Q1gNKg9RU6" target="_blank">
-            <div class="title">Spotify</div>
-        </a>
-        <a class="card" href="https://www.youtube.com/@jugablemente" target="_blank">
-            <div class="title">Youtube</div>
-        </a>
-        <a class="card" href="https://x.com/jugablemente" target="_blank">
-            <div class="title">Twitter</div>
-        </a>
-        <a class="card" href="https://t.me/+Xi0qWRDfaC82NWY0" target="_blank">
-            <div class="title">Telegram</div>
-        </a>
-        <a class="card" href="https://www.instagram.com/jugablemente" target="_blank">
-            <div class="title">Instagram</div>
-        </a>
+
+        <h2 class="section-title">Escúchalo en...</h2>
+
+        <div class="section">
+            <a class="card ivoox" href="https://go.ivoox.com/sq/3160639" target="_blank">
+                <img src="img/ivoox.png" class="icon" alt="ivoox">
+                <div class="title">Ivoox</div>
+            </a>
+
+            <a class="card spotify" href="https://open.spotify.com/show/5iHQB3gf4hD3Q1gNKg9RU6" target="_blank">
+                <img src="img/spotify.png" class="icon" alt="spotify">
+                <div class="title">Spotify</div>
+            </a>
+
+            <a class="card youtube" href="https://www.youtube.com/@jugablemente" target="_blank">
+                <img src="img/youtube.png" class="icon" alt="youtube">
+                <div class="title">Youtube</div>
+            </a>
+
+            <a class="card apple" href="https://podcasts.apple.com/es/podcast/jugable-mente/id1896258952" target="_blank">
+                <img src="img/apple.png" class="icon" alt="apple">
+                <div class="title">Apple Podcast</div>
+            </a>
+
+            <a class="card amazon" href="https://music.amazon.es/podcasts/18aac970-bc3b-422a-a130-e5cb189e9601/jugable-mente" target="_blank">
+                <img src="img/amazon.png" class="icon" alt="amazon">
+                <div class="title">Amazon Podcast</div>
+            </a>
+        </div>
+
+        <h2 class="section-title">Contacta y hablamos en...</h2>
+
+        <div class="section">
+            <a class="card telegram" href="https://t.me/+Xi0qWRDfaC82NWY0" target="_blank">
+                <img src="img/telegram.png" class="icon" alt="telegram">
+                <div class="title">Telegram</div>
+            </a>
+
+            <a class="card twitter" href="https://x.com/jugablemente" target="_blank">
+                <img src="img/x.png" class="icon" alt="twitter">
+                <div class="title">Twitter (X)</div>
+            </a>
+        </div>
+
     </div>
 
     <footer>© Jugable Mente</footer>
